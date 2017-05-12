@@ -13,7 +13,7 @@ const firstPredictionSelector = (data) => get(data, 'predictions[0].description'
 const params = {
   key: GOOGLE_API_KEY,
   location: '41.390205,2.154007', // Barcelona, Spain
-  radius: 10000, // 10km
+  radius: 15000, // 15km
   strictbounds: true
 };
 
