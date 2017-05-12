@@ -10,7 +10,6 @@ const PORT = process.env.PORT || 8080;
 const firstPredictionSelector = (data) => get(data, 'predictions[0].description');
 
 const params = {
-  input,
   key: GOOGLE_API_KEY,
   location: '41.390205,2.154007', // Barcelona, Spain
   radius: 10000, // 10km
