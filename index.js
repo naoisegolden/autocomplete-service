@@ -8,7 +8,7 @@ const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 const GOOGLE_PLACES_SERVICE = 'https://maps.googleapis.com/maps/api/place/autocomplete/json';
 const PORT = process.env.PORT || 8080;
 
-const firstPredictionSelector = (data) => get(data, 'predictions[0]');
+const firstPredictionSelector = (data) => get(data, 'predictions[0].description');
 
 const params = {
   key: GOOGLE_API_KEY,
