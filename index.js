@@ -13,7 +13,6 @@ const params = {
   key: GOOGLE_API_KEY,
   location: '41.390205,2.154007', // Barcelona, Spain
   radius: 10000, // 10km
-  types: 'address',
   strictbounds: true
 };
 
