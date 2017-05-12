@@ -1,0 +1,21 @@
+{
+  "name": "autocomplete-service",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=7"
+  },
+  "description": "A service that outputs the first suggested address for a given input",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": "https://github.com/naoisegolden/autocomplete-service",
+  "author": "Naoise Golden <naoise.golden@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2",
+    "lodash": "^4.17.4",
+    "querystring": "^0.2.0",
+    "request": "^2.81.0"
+  }
+}
