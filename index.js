@@ -2,12 +2,13 @@ const app = require('express')();
 const request = require('request');
 const querystring = require('querystring');
 const get = require('lodash/get');
+const js2xmlparser = require('js2xmlparser');
 
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 const GOOGLE_PLACES_SERVICE = 'https://maps.googleapis.com/maps/api/place/autocomplete/json';
 const PORT = process.env.PORT || 8080;
 
-const firstPredictionSelector = (data) => get(data, 'predictions[0].description');
+const firstPredictionSelector = (data) => get(data, 'predictions[0]');
 
 const params = {
   key: GOOGLE_API_KEY,
@@ -31,10 +32,13 @@ app.get('/', (req, res) => {
   };
 
   request(options, (error, response, body) => {
-    res.send(firstPredictionSelector(body));
+    const output = js2xmlparser.parse('address', firstPredictionSelector(body));
+
+    res.setHeader('content-type', 'text/xml');
+    res.send(output);
   });
 });
 
 app.listen(PORT, () => {
-  console.log('App is up');
+  console.log(`App is up, listening on port ${PORT}`);
 });
